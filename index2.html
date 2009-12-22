@@ -20,10 +20,14 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
+  var panels = $(".carousel > ul > li:eq(1) > .content > .panel").length;
+  $(".coda-slider-wrapper").html("");
+  $(".coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
+  for(var i =0; i< panels; i++) {
+     var panel_html = $(".carousel > ul > li:eq(1) > .content > .panel:eq(" + i +")").html();
+     $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
+  }
   $('#coda-slider-1').codaSlider();
-  var panel = $("#coda-slider-1 > .panel-container > .panel:eq(0) > .panel-wrapper");
-  panel.html($(".carousel > ul > li:eq(1) > .content").html());
-  /* alert($("#coda-slider-1 > .panel-container > .panel:eq(1) > .panel-wrapper > h2").text()); */
   $(".carousel").jCarouselLite({
        btnNext: ".next",
        btnPrev: ".prev",
@@ -32,10 +36,14 @@
            if(a==3) a = 0;
            else a++;
            var txt =  $(".carousel > ul > li:eq(" + a + ") > .content").html();
-           var panel = $("#coda-slider-1 > .panel-container > .panel:eq(0) > .panel-wrapper");
-           var panel1 = $("#coda-slider-1 > .panel-container > .panel:eq(1) > .panel-wrapper");
-           panel.html(txt);
-           panel1.html(txt);
+           var panels = $(".carousel > ul > li:eq(" + a + ") > .content > .panel").length;
+           $(".coda-slider-wrapper").html("");
+           $(".coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
+           for(var i =0; i< panels; i++) {
+              var panel_html = $(".carousel > ul > li:eq(" + a + ") > .content > .panel:eq(" + i +")").html();
+              $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
+           }
+           $('#coda-slider-1').codaSlider();
        }
   });
   $(".carousel img").reflect({opacity:0.5, height:0.3});
@@ -60,78 +68,79 @@
 	   <div class="title">Vertical machining centers</div>
 	   <img src="/img/vmc.jpg" alt="vertical machining center"/>	  
 	   <div class="content">
+	     <div class="panel">
 	     <h2 class="title">vmc 1</h2>
 	     <p>
 	       hello world
              </p>
+	     </div>
+	     <div class="panel">
 	     <h2 class="title">vmc 2</h2>
 	     <p>
 	       hello world2
              </p>
+	     </div>
 	   </div>
 	 </li>
          <li>
 	   <div class="title">Horizontal machining centers</div>
 	   <img src="/img/hmc.jpg" alt="horizontal machining center"/>	   
-	   <div class="content">     
+	   <div class="content">
+	     <div class="panel">
 	     <h2 class="title">hmc 1</h2>
 	     <p>
 	       hello world
              </p>
+	     </div>
+	     <div class="panel">
 	     <h2 class="title">hmc 2</h2>
 	     <p>
 	       hello world2
              </p>
+	     </div>
 	   </div>
 	 </li>
          <li>
 	   <div class="title">Double column machines</div>
 	   <img src="/img/double-column.jpg" alt="double column"/>
 	   <div class="content">
+	     <div class="panel">
 	     <h2 class="title">dcm 1</h2>
 	     <p>
 	       hello world
              </p>
+	     </div>
+	     <div class="panel">
 	     <h2 class="title">dcm 2</h2>
 	     <p>
 	       hello world2
              </p>
+	     </div>
 	   </div>
 	 </li>
          <li>
 	   <div class="title">Turning centers</div>	   
 	   <img src="/img/turning-center.jpg" alt="turning center"/>
 	   <div class="content">
+	     <div class="panel">
 	     <h2 class="title">tc 2</h2>
 	     <p>
 	       hello world
              </p>
+	     </div>
+	     <div class="panel">
 	     <h2 class="title">tc 2</h2>
 	     <p>
 	       hello world2
              </p>
+	     </div>
 	   </div>
 	 </li>
      </ul>
  </div>
  </div>
  <div id="descr">
-<div class="coda-slider-wrapper">
-	<div class="coda-slider preload" id="coda-slider-1">
-		<div class="panel">
-			<div class="panel-wrapper">
-				<h2 class="title">Panel 1</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Sed volutpat ante id mauris laoreet vestibulum. Nam blandit felis non neque cursus aliquet. Morbi vel enim dignissim massa dignissim commodo vitae quis tellus. Nunc non mollis nulla. Sed consectetur elit id mi consectetur bibendum. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis. Aliquam sit amet purus lectus. Maecenas tempor ornare sollicitudin.</p>
-			</div>
-		</div>
-		<div class="panel">
-			<div class="panel-wrapper">
-				<h2 class="title">Panel 2</h2>
-				<p>Proin nec turpis eget dolor dictum lacinia. Nullam nunc magna, tincidunt eu porta in, faucibus sed magna. Suspendisse laoreet ornare ullamcorper. Nulla in tortor nibh. Pellentesque sed est vitae odio vestibulum aliquet in nec leo.</p>
-			</div>
-		</div>
-	</div><!-- .coda-slider -->
-</div><!-- .coda-slider-wrapper -->
+ <div class="coda-slider-wrapper"></div>
  </div>
  </div>
 <div id="footer" class="span-21 append-3 last">

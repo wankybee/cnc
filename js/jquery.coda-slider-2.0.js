@@ -35,31 +35,31 @@ $.fn.codaSlider = function(settings) {
 		slideEaseDuration: 1000,
 		slideEaseFunction: "easeInOutExpo"
 	}, settings);
-	
+
 	return this.each(function(){
-		
+
 		// Uncomment the line below to test your preloader
 		// alert("Testing preloader");
-		
+
 		var slider = $(this);
-		
+
 		// If we need arrows
 		if (settings.dynamicArrows) {
 			slider.parent().addClass("arrows");
-			slider.before('<div class="coda-nav-left" id="coda-nav-left-' + sliderCount + '"><a href="#">' + settings.dynamicArrowLeftText + '</a></div>');
-			slider.after('<div class="coda-nav-right" id="coda-nav-right-' + sliderCount + '"><a href="#">' + settings.dynamicArrowRightText + '</a></div>');
+			slider.before('<div class="coda-nav-left" id="coda-nav-left-' + sliderCount + '"><a href="#"><img src="/img/left2.jpg" alt="left"/></a></div>');
+			slider.after('<div class="coda-nav-right" id="coda-nav-right-' + sliderCount + '"><a href="#"><img src="/img/right2.jpg" alt="right"/></a></div>');
 		};
-		
+
 		var panelWidth = slider.find(".panel").width();
 		var panelCount = slider.find(".panel").size();
 		var panelContainerWidth = panelWidth*panelCount;
 		var navClicks = 0; // Used if autoSlideStopWhenClicked = true
-		
+
 		// Surround the collection of panel divs with a container div (wide enough for all panels to be lined up end-to-end)
 		$('.panel', slider).wrapAll('<div class="panel-container"></div>');
 		// Specify the width of the container div (wide enough for all panels to be lined up end-to-end)
 		$(".panel-container", slider).css({ width: panelContainerWidth });
-		
+
 		// Specify the current panel.
 		// If the loaded URL has a hash (cross-linking), we're going to use that hash to give the slider a specific starting position...
 		if (settings.crossLinking && location.hash && parseInt(location.hash.slice(1)) <= panelCount) {
@@ -67,15 +67,15 @@ $.fn.codaSlider = function(settings) {
 			var offset = - (panelWidth*(currentPanel - 1));
 			$('.panel-container', slider).css({ marginLeft: offset });
 		// If that's not the case, check to see if we're supposed to load a panel other than Panel 1 initially...
-		} else if (settings.firstPanelToLoad != 1 && settings.firstPanelToLoad <= panelCount) { 
+		} else if (settings.firstPanelToLoad != 1 && settings.firstPanelToLoad <= panelCount) {
 			var currentPanel = settings.firstPanelToLoad;
 			var offset = - (panelWidth*(currentPanel - 1));
 			$('.panel-container', slider).css({ marginLeft: offset });
 		// Otherwise, we'll just set the current panel to 1...
-		} else { 
+		} else {
 			var currentPanel = 1;
 		};
-			
+
 		// Left arrow click
 		$("#coda-nav-left-" + sliderCount + " a").click(function(){
 			navClicks++;
@@ -94,7 +94,7 @@ $.fn.codaSlider = function(settings) {
 			if (settings.crossLinking) { location.hash = currentPanel }; // Change the URL hash (cross-linking)
 			return false;
 		});
-			
+
 		// Right arrow click
 		$('#coda-nav-right-' + sliderCount + ' a').click(function(){
 			navClicks++;
@@ -113,7 +113,7 @@ $.fn.codaSlider = function(settings) {
 			if (settings.crossLinking) { location.hash = currentPanel }; // Change the URL hash (cross-linking)
 			return false;
 		});
-		
+
 		// If we need a dynamic menu
 		if (settings.dynamicTabs) {
 			var dynamicTabs = '<div class="coda-nav" id="coda-nav-' + sliderCount + '"><ul></ul></div>';
@@ -128,7 +128,7 @@ $.fn.codaSlider = function(settings) {
 			ul = $('#coda-nav-' + sliderCount + ' ul');
 			// Create the nav items
 			$('.panel', slider).each(function(n) {
-				ul.append('<li class="tab' + (n+1) + '"><a href="#' + (n+1) + '">' + $(this).find(settings.panelTitleSelector).text() + '</a></li>');												
+				ul.append('<li class="tab' + (n+1) + '"><a href="#' + (n+1) + '">' + $(this).find(settings.panelTitleSelector).text() + '</a></li>');
 			});
 			navContainerWidth = slider.width() + slider.siblings('.coda-nav-left').width() + slider.siblings('.coda-nav-right').width();
 			ul.parent().css({ width: navContainerWidth });
@@ -141,7 +141,7 @@ $.fn.codaSlider = function(settings) {
 					break;
 			};
 		};
-			
+
 		// If we need a tabbed nav
 		$('#coda-nav-' + sliderCount + ' a').each(function(z) {
 			// What happens when a nav link is clicked
@@ -155,7 +155,7 @@ $.fn.codaSlider = function(settings) {
 				if (!settings.crossLinking) { return false }; // Don't change the URL hash unless cross-linking is specified
 			});
 		});
-		
+
 		// External triggers (anywhere on the page)
 		$(settings.externalTriggerSelector).each(function() {
 			// Make sure this only affects the targeted slider
@@ -174,7 +174,7 @@ $.fn.codaSlider = function(settings) {
 				});
 			};
 		});
-			
+
 		// Specify which tab is initially set to "current". Depends on if the loaded URL had a hash or not (cross-linking).
 		if (settings.crossLinking && location.hash && parseInt(location.hash.slice(1)) <= panelCount) {
 			$("#coda-nav-" + sliderCount + " a:eq(" + (location.hash.slice(1) - 1) + ")").addClass("current");
@@ -185,27 +185,27 @@ $.fn.codaSlider = function(settings) {
 		} else {
 			$("#coda-nav-" + sliderCount + " a:eq(0)").addClass("current");
 		};
-		
+
 		// Set the height of the first panel
 		if (settings.autoHeight) {
 			panelHeight = $('.panel:eq(' + (currentPanel - 1) + ')', slider).height();
 			slider.css({ height: panelHeight });
 		};
-		
+
 		// Trigger autoSlide
 		if (settings.autoSlide) {
 			slider.ready(function() {
 				setTimeout(autoSlide,settings.autoSlideInterval);
 			});
 		};
-		
+
 		function alterPanelHeight(x) {
 			if (settings.autoHeight) {
 				panelHeight = $('.panel:eq(' + x + ')', slider).height()
 				slider.animate({ height: panelHeight }, settings.autoHeightEaseDuration, settings.autoHeightEaseFunction);
 			};
 		};
-		
+
 		function autoSlide() {
 			if (navClicks == 0 || !settings.autoSlideStopWhenClicked) {
 				if (currentPanel == panelCount) {
@@ -223,12 +223,12 @@ $.fn.codaSlider = function(settings) {
 				setTimeout(autoSlide,settings.autoSlideInterval);
 			};
 		};
-		
+
 		// Kill the preloader
 		$('.panel', slider).show().end().find("p.loading").remove();
 		slider.removeClass("preload");
-		
+
 		sliderCount++;
-		
+
 	});
 };
