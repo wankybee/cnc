@@ -20,12 +20,12 @@
   <!--[if IE]>
    <link rel="stylesheet" href="css/iestyle.css" type="text/css" media="screen"/>
   < ![endif]-->
-
+  <link type="text/css" href="css/tabstyle.css" rel="stylesheet" />
 
   <script type="text/javascript">
   $(document).ready(function(){
-    $("#tabs").tabs();
-    $(function() { $('#tabs').tabs({remote:true}); });
+    $("#homepage").tabs({remote:true});
+    /*$(function() { $('#tabs').tabs({remote:true}); });*/
  	 $(".contimage").hover(function() {
 			$(this).animate({
 				opacity:1
@@ -46,7 +46,7 @@
 <div id="header" class="span-21 append-3 last">
 <h1 style="margin-top:0.5em;"> Autotech CNC </h1>
 </div>
-<div id="tabs" class="span-21 append-3 last">
+<div id="homepage" class="span-21 append-3 last">
     <ul>
         <li><a href="about_us.html" title="About Us"><span>About us</span></a></li>
         <li><a href="products.html" title="Products"><span>Products</span></a></li>
