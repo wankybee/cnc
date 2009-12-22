@@ -1,0 +1,39 @@
+.content {display: none}
+.carousel {
+    /*background:lightgrey;*/
+}
+
+.carousel > ul > li {
+    width:160px; 
+    height:200px;
+    margin:50px;
+}
+
+#descr1 {
+    background-color:lightgrey;
+    -moz-border-radius-bottomleft:6px;
+    -moz-border-radius-bottomright:6px;
+    -moz-border-radius-topleft:6px;
+    -moz-border-radius-topright:6px;
+    height:180px;
+    font:sans-serif;
+    font-size:20px;
+    width: 780px;
+    margin-top:20px;
+}
+
+#items {
+    margin-top:-150px;
+}
+
+.prev {
+    position:relative;
+    top:100px;
+    left:-100px;
+}
+
+.next {
+    position:relative;
+    top:100px;
+    left:-690px;
+}
