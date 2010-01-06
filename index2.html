@@ -7,10 +7,12 @@
   <!--[if IE]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
   <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
   <script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
+  <script type="text/javascript" src="js/facebox.js"></script>
   <script type="text/javascript" src="js/reflection.js"></script>
   <link rel="stylesheet" href="css/style.css" type="text/css" />
   <link rel="stylesheet" href="css/newpage.css" type="text/css" />
   <link rel="stylesheet" href="css/coda-slider-2.0.css" type="text/css" media="screen"/>
+  <link href="css/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
   <!--[if IE]>
    <link rel="stylesheet" href="css/iestyle.css" type="text/css" media="screen"/>
   < ![endif]-->
@@ -21,13 +23,22 @@
   <script type="text/javascript">
   $(document).ready(function(){
   var panels = $(".carousel > ul > li:eq(1) > .content > .panel").length;
-  $(".coda-slider-wrapper").html("");
-  $(".coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
+  $("#descr > .coda-slider-wrapper").html("");
+  $("#descr > .coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
   for(var i =0; i< panels; i++) {
      var panel_html = $(".carousel > ul > li:eq(1) > .content > .panel:eq(" + i +")").html();
      $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
   }
   $('#coda-slider-1').codaSlider();
+
+
+/*  $("#link").bind("click", function(e){
+		   var url = $(this).attr('href');
+		   $("#descr2").load(url);
+		   e.preventDefault();
+		   });
+*/
+
   $(".carousel").jCarouselLite({
        btnNext: ".next",
        btnPrev: ".prev",
@@ -37,8 +48,8 @@
            else a++;
            var txt =  $(".carousel > ul > li:eq(" + a + ") > .content").html();
            var panels = $(".carousel > ul > li:eq(" + a + ") > .content > .panel").length;
-           $(".coda-slider-wrapper").html("");
-           $(".coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
+           $("#descr > .coda-slider-wrapper").html("");
+           $("#descr > .coda-slider-wrapper").append('<div class="coda-slider preload" id="coda-slider-1"></div>');
            for(var i =0; i< panels; i++) {
               var panel_html = $(".carousel > ul > li:eq(" + a + ") > .content > .panel:eq(" + i +")").html();
               $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
@@ -46,7 +57,7 @@
            $('#coda-slider-1').codaSlider();
        }
   });
-  $(".carousel img").reflect({opacity:0.5, height:0.3});
+  $(".carousel img").reflect({opacity:0.5, height:0.3});			    
   });
   </script>
 </head>
@@ -55,6 +66,9 @@
 <h1 style="margin-top:0.5em;"> Autotech CNC </h1>
 </div>
 <div id="homepage" class="span-21 append-3 last">
+<a href="#" class="contact" style="position:relative;top:-100px;float:right;decoration:none;outline:none;">
+   <img src="/img/contact.jpg" alt="contact us"/>
+</a>
  <div id="items">
     <a href="#" class="prev" style="position:relative;top:180px;left:-100px;decoration:none;outline:none;">
    <img src="/img/left.jpg" alt="left"/>
@@ -79,6 +93,15 @@
 	     <p>
 	       hello world2
              </p>
+	     <script type="text/javascript">
+	      $(".link").click(function(e){
+		   e.preventDefault();
+	           alert(e.isDefaultPrevented());
+		   var url = $(this).attr('href');
+		   $("#descr2").load(url);
+		   });
+	      </script>
+             <p><a class="link" href="/cnc/ajax.html">AX-450</a></p>
 	     </div>
 	   </div>
 	 </li>
@@ -133,15 +156,34 @@
 	     <p>
 	       hello world2
              </p>
+	     <p>
+	       <h2>foo</h2>
+	       hello world2
+             </p>
+	     <p>
+	       hello world2
+             </p>
+	     </div>
+	     <div class="panel">
+	     <h2 class="title">tc 3</h2>
+	     <p>
+	       hello world3
+             </p>
 	     </div>
 	   </div>
 	 </li>
      </ul>
  </div>
  </div>
+
  <div id="descr">
  <div class="coda-slider-wrapper"></div>
  </div>
+
+ <div id="descr2">
+ <div class="coda-slider-wrapper"></div>
+ </div>
+
  </div>
 <div id="footer" class="span-21 append-3 last">
 <p style="margin-top:0.5em;">copyright info.</p>

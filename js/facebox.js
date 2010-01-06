@@ -85,7 +85,7 @@
       opacity      : 0,
       overlay      : true,
       loadingImage : '/cnc/css/loading.gif',
-      closeImage   : '/cnc/css/closelabel.gif',
+      closeImage   : '/img/close.jpg',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
       faceboxHtml  : '\
     <div id="facebox" style="display:none;"> \
