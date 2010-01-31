@@ -16,36 +16,31 @@ $vname = "BrightCherry enquiry";
 *************************/
 
 
-$email = $_POST['email'];
+$mobile = $_POST['mobile'];
 
-function validateEmail($email)
+function validateMobile($mobile)
 {
-   if(eregi('^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,3})?(\.[a-zA-Z]{2,3})?$', $email))
+   if(eregi('^[0-9]{10}$', $mobile))
 	  return true;
    else
 	  return false;
 }
 
 
-if((strlen($_POST['name']) < 1 ) || (strlen($email) < 1 ) || (strlen($_POST['message']) < 1 ) || validateEmail($email) == FALSE){
-	$emailerror .= 'Error:';
-
+if((strlen($_POST['name']) < 1 ) || (strlen($mobile) < 1 ) || validateMobile($mobile) == FALSE){	
 	if(strlen($_POST['name']) < 1 ){
 		$emailerror .= '<li>Enter name</li>';
 	}
 
-	if(strlen($email) < 1 ){
-		$emailerror .= '<li>Enter email</li>';
+	if(strlen($mobile) < 1 ){
+		$emailerror .= '<li>Enter a 10 digit mobile no.</li>';
 	}
-
-	if(validateEmail($email) == FALSE) {
-		$emailerror .= '<li>Enter valid email</li>';
+        // validate mobile number only after it is entered
+        else {
+	       if(validateMobile($mobile) == FALSE) {
+		   $emailerror .= '<li>Enter a valid mobile no.</li>';
+	     }
 	}
-
-	if(strlen($_POST['message']) < 1 ){
-		$emailerror .= '<li>Enter message</li>';
-	}
-
 } else {
 
 	$emailerror .= "<span>Your email has been sent successfully!</span>";
@@ -60,11 +55,9 @@ if((strlen($_POST['name']) < 1 ) || (strlen($email) < 1 ) || (strlen($_POST['mes
 		"Name: " .
 		ucwords($_POST['name']) .
 		"\n" .
-		"Email: " .
-		ucwords($email) .
+		"Phone: " .
+		ucwords($mobile) .
 		"\n" .
-		"Comments: " .
-		$_POST['message'] .
 		"\n" .
 		"\n\n" ;
 

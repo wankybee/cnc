@@ -33,6 +33,7 @@ font-style:italic;
  #contactform #error ul{
  padding-left:0px;
  line-height:20px;
+ list-style-type: none;
  }
  #contactform #error span{
  color:green;
