@@ -19,7 +19,9 @@
 
   <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
   <script type="text/javascript" src="js/jquery.coda-slider-2.0.js"></script>
-
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/tiza_400.font.js"></script>
+  <script type="text/javascript" src="js/cpmono_305.font.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
   var panels = $(".carousel > ul > li:eq(1) > .content > .panel").length;
@@ -47,28 +49,29 @@
               $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
            }
            $('#coda-slider-1').codaSlider();
+           Cufon.set('fontFamily', 'cpmono').replace('.coda-nav > a')
        }
   });
   });
-  </script>
-  <script type="text/javascript">
   $(document).ready(function(){
       $('a[rel*=facebox]').facebox({
         loading_image : '/cnc/loading.gif',
         close_image   : '/cnc/closelabel.gif'
       })
   });
+  Cufon.set('fontFamily', 'tiza').replace('h1')
+  Cufon.set('fontFamily', 'cpmono').replace('.coda-nav ~ a')
   </script>
 
   <title> Autotech CNC </title>
 </head>
 <body class="container">
 <div id="header" class="span-21 append-3 last">
-<h1 style="margin-top:0.5em;"> Autotech CNC </h1>
+<h1 style="margin-top:0.5em; color:red;"> Autotech CNC </h1>
 </div>
 <div id="homepage" class="span-21 append-3 last">
     <a id="contact_us" href="/cnc/contact.php" rel="facebox" style="position:relative;top:-100px;float:right;decoration:none;outline:none; left:350px;">
-      <img src="/cnc/contact_us.jpg" alt="contact us" class="contimage" border="0" width="50%" height="50%"/>
+      <img src="/cnc/contact_us.jpg" alt="contact us" class="contimage" border="0" width="25%" height="25%"/>
     </a>
  <div id="items">
     <a href="#" class="prev" style="position:relative;top:180px;left:-100px;decoration:none;outline:none;">
@@ -97,9 +100,10 @@
 	     <script type="text/javascript">
 	      $(".link").click(function(e){
 		   e.preventDefault();
-	           alert(e.isDefaultPrevented());
 		   var url = $(this).attr('href');
 		   $("#descr2").load(url);
+	           $('html, body').animate({scrollTop: $("#descr2").offset().top}, 2000);
+                   Cufon.set('fontFamily', 'cpmono').replace('.coda-nav > a')
 		   });
 	      </script>
              <p><a class="link" href="/cnc/ajax.html">AX-450</a></p>
@@ -187,7 +191,7 @@
 
  </div>
 <div id="footer" class="span-21 append-3 last">
-<p style="margin-top:0.5em;">&copy; 2010.</p>
+<p style="margin-top:0.5em;"><b>&copy; 2010.</b></p>
 </div>
 </body>
 </html>

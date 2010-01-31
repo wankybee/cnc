@@ -134,7 +134,7 @@ $.fn.codaSlider = function(settings) {
 			ul.parent().css({ width: navContainerWidth });
 			switch (settings.dynamicTabsAlign) {
 				case "center":
-					ul.css({ width: ($("li", ul).width() + 2) * panelCount });
+					ul.css({ width: ($("li", ul).width() + 2) * panelCount + 100 });
 					break;
 				case "right":
 					ul.css({ float: 'right' });
