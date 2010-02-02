@@ -41,3 +41,29 @@
 div.title {
     font-size: 20px;
 }
+
+.panel-wrapper > h2 {
+    color: #800000;
+}
+
+.panel-wrapper > p {
+    font-size: 20px;
+}
+
+.panel > h2 {
+    color: #800000;
+}
+
+.panel > p {
+    font-size: 20px;
+}
+
+.link:visited { color: #006666; }
+
+.link {
+    text-decoration: none;
+    outline: none;
+    color: #006633;
+    font-size: 30px;
+    border-bottom: 1px dashed;
+}
