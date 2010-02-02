@@ -34,6 +34,11 @@
   }
   $('#coda-slider-1').codaSlider({name:"s1"});
 
+  $("#top").click(function(e){
+  e.preventDefault();
+  $('html, body').animate({scrollTop: $("#header").offset().top}, 1000);
+  });
+
   $(".carousel").jCarouselLite({
        btnNext: ".next",
        btnPrev: ".prev",
@@ -65,17 +70,19 @@
   Cufon.set('fontFamily', 'good-dog').replace('div.title')
   Cufon.set('fontFamily', 'good-dog').replace('#copyright')
   Cufon.set('fontFamily', 'good-dog').replace('.link')
+  Cufon.set('fontFamily', 'good-dog').replace('#contact_us')
+  Cufon.set('fontFamily', 'good-dog').replace('#top > div')
   </script>
 
   <title> Autotech CNC </title>
 </head>
 <body class="container">
 <div id="header" class="span-21 append-3 last">
-<h1 style="margin-top:0.5em; color:red;"> Autotech CNC </h1>
+<h1> Autotech CNC </h1>
 </div>
 <div id="homepage" class="span-21 append-3 last">
-    <a id="contact_us" href="/cnc/contact.php" rel="facebox" style="position:relative;top:-100px;float:right;decoration:none;outline:none; left:350px;">
-      <img src="/cnc/contact_us.jpg" alt="contact us" class="contimage" border="0" width="25%" height="25%"/>
+    <a id="contact_us" href="/cnc/contact.php" rel="facebox">
+      Get in touch!
     </a>
  <div id="items">
     <a href="#" class="prev" style="position:relative;top:180px;left:-100px;decoration:none;outline:none;">
@@ -190,8 +197,15 @@
  </div>
 
  </div>
+
 <div id="footer" class="span-21 append-3 last" style="font-size:15px; margin-top:0.5em;">
 <span>&copy;  </span><span id="copyright">Autotech CNC. 2010.</span>
+<span>
+  <a href="#" id="top">
+   <img src="/img/top.jpg" alt="top"/>
+   <div> Top </div>
+   </a>  
+</span>   
 </div>
 </body>
 </html>
