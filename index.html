@@ -22,6 +22,7 @@
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/tiza_400.font.js"></script>
   <script type="text/javascript" src="js/cpmono_305.font.js"></script>
+  <script type="text/javascript" src="js/good-dog_400.font.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
   var panels = $(".carousel > ul > li:eq(1) > .content > .panel").length;
@@ -60,7 +61,9 @@
       })
   });
   Cufon.set('fontFamily', 'tiza').replace('h1')
-  Cufon.set('fontFamily', 'cpmono').replace('.coda-nav ~ a')
+  Cufon.set('fontFamily', 'cpmono').replace('.coda-nav > a')
+  Cufon.set('fontFamily', 'good-dog').replace('div.title')
+  Cufon.set('fontFamily', 'good-dog').replace('#copyright')
   </script>
 
   <title> Autotech CNC </title>
@@ -190,8 +193,8 @@
  </div>
 
  </div>
-<div id="footer" class="span-21 append-3 last">
-<p style="margin-top:0.5em;"><b>&copy; 2010.</b></p>
+<div id="footer" class="span-21 append-3 last" style="font-size:15px; margin-top:0.5em;">
+<span>&copy;  </span><span id="copyright">Autotech CNC. 2010.</span>
 </div>
 </body>
 </html>
