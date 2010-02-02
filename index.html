@@ -32,7 +32,7 @@
      var panel_html = $(".carousel > ul > li:eq(1) > .content > .panel:eq(" + i +")").html();
      $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
   }
-  $('#coda-slider-1').codaSlider();
+  $('#coda-slider-1').codaSlider({name:"s1"});
 
   $(".carousel").jCarouselLite({
        btnNext: ".next",
@@ -49,7 +49,7 @@
               var panel_html = $(".carousel > ul > li:eq(" + a + ") > .content > .panel:eq(" + i +")").html();
               $("#coda-slider-1").append('<div class="panel"><div class="panel-wrapper">' + panel_html + '</div></div>');
            }
-           $('#coda-slider-1').codaSlider();
+           $('#coda-slider-1').codaSlider({name:"s1"});
            Cufon.set('fontFamily', 'good-dog').replace('.link')
        }
   });

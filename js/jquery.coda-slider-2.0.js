@@ -46,9 +46,15 @@ $.fn.codaSlider = function(settings) {
 		// If we need arrows
 		if (settings.dynamicArrows) {
 			slider.parent().addClass("arrows");
+		  if(settings.name == "s1") {
 			slider.before('<div class="coda-nav-left" id="coda-nav-left-' + sliderCount + '"><a href="#"><img src="/img/left2.jpg" alt="left"/></a></div>');
 			slider.after('<div class="coda-nav-right" id="coda-nav-right-' + sliderCount + '"><a href="#"><img src="/img/right2.jpg" alt="right"/></a></div>');
-		};
+		  }
+		  if(settings.name == "s2") {
+			slider.before('<div class="coda-nav-left" id="coda-nav-left-' + sliderCount + '"><a href="#"><img src="/img/left3.jpg" alt="left"/></a></div>');
+			slider.after('<div class="coda-nav-right" id="coda-nav-right-' + sliderCount + '"><a href="#"><img src="/img/right3.jpg" alt="right"/></a></div>');
+		  }
+		  };
 
 		var panelWidth = slider.find(".panel").width();
 		var panelCount = slider.find(".panel").size();
