@@ -38,7 +38,6 @@
   e.preventDefault();
   $('html, body').animate({scrollTop: $("#header").offset().top}, 1000);
   });
-
   $(".carousel").jCarouselLite({
        btnNext: ".next",
        btnPrev: ".prev",
@@ -73,7 +72,6 @@
   Cufon.set('fontFamily', 'good-dog').replace('#contact_us')
   Cufon.set('fontFamily', 'good-dog').replace('#top > div')
   </script>
-
   <title> Autotech CNC </title>
 </head>
 <body class="container">
@@ -95,29 +93,44 @@
      <ul>
          <li>
 	   <div class="title">Vertical machining centers</div>
-	   <img src="/img/vmc.jpg" alt="vertical machining center"/>	  
+	   <img src="/img/vmc.jpg" alt="vertical machining center"/>
 	   <div class="content">
 	     <div class="panel">
-	     <h2 class="title">vmc 1</h2>
+	     <h2 class="title">High speed</h2>
+	     <p>
+	       <img src="/img/vmc/high-speed/lv500.jpg" alt="LV-500" align="left"/>
+	       <a class="link" href="/cnc/lv500.html">LV-500</a>
+	       When jobs call for highly efficient machining and when outstanding accuracy is critical,
+	       a Pinnacle linear way series vertical machining center is the perfect solution.
+             </p>
+	     </div>
+	     <div class="panel">
+	     <h2 class="title">Box ways</h2>
+	     <p>
+	       hello world2
+             </p>
+  <script type="text/javascript">
+   $(".link").click(function(e){
+   e.preventDefault();
+   var url = $(this).attr('href');
+   $("#descr2").load(url);
+   $('html, body').animate({scrollTop: $("#descr2").offset().top}, 2000);
+   Cufon.set('fontFamily', 'good-dog').replace('.link')
+   });
+  </script>
+             <p><a class="link" href="/cnc/ajax.html">AX-450</a></p>
+	     </div>
+	     <div class="panel">
+	     <h2 class="title">Heavy duty</h2>
 	     <p>
 	       hello world
              </p>
 	     </div>
 	     <div class="panel">
-	     <h2 class="title">vmc 2</h2>
+	     <h2 class="title">Linear ways</h2>
 	     <p>
-	       hello world2
+	       hello world
              </p>
-	     <script type="text/javascript">
-	      $(".link").click(function(e){
-		   e.preventDefault();
-		   var url = $(this).attr('href');
-		   $("#descr2").load(url);
-	           $('html, body').animate({scrollTop: $("#descr2").offset().top}, 2000);
-                   Cufon.set('fontFamily', 'good-dog').replace('.link')
-		   });
-	      </script>
-             <p><a class="link" href="/cnc/ajax.html">AX-450</a></p>
 	     </div>
 	   </div>
 	 </li>

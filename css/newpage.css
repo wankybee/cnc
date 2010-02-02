@@ -55,7 +55,16 @@ div.title {
 }
 
 .panel > p {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.panel {
+    font-size: 15px;
+}
+
+.panel > ul {
+    font-size: 15px;
+    list-style-image: url(/img/check.jpg);
 }
 
 .link:visited { color: #006666; }
