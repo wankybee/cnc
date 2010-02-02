@@ -47,7 +47,8 @@ div.title {
 }
 
 .panel-wrapper > p {
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .panel > h2 {
@@ -56,15 +57,23 @@ div.title {
 
 .panel > p {
     font-size: 15px;
+    font-weight: bold;
 }
+
+.panel > h4 {
+    color: #800000;
+}
+
 
 .panel {
     font-size: 15px;
+    font-weight: bold;
 }
 
 .panel > ul {
     font-size: 15px;
     list-style-image: url(/img/check.jpg);
+    font-weight: bold;
 }
 
 .link:visited { color: #006666; }
